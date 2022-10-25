@@ -15,10 +15,9 @@
 </head>
 
 <body>
+
     <script id="plants-template" type="text/x-handlebars-template">
-        <ul>
-             
-            {{#each plants}}
+        {{#each plants}}
             <div class="container">
                 <div class="row">
                     <div class="card mb-3" data-id={{this.id}}>
@@ -58,22 +57,16 @@
                 </div>
             </div>
                 {{/each}}
-        </ul>
     </script>
-    <div class="container">
-        <div class="row">
-            <div class="d-flex justify-content-center">
-                <img src="images\time-to-plant-logo.png" class="w-50 m-3">
-            </div>
-            <div class=" input-group d-flex justify-content-left mb-3 mt-3 vw-100">
-                <input type="search" id="form1" class="form-control" placeholder="Search" />
-                <button type="button" class="btn btn-primary">
-                    <i class="fas fa-search"></i>
-                </button>
-            </div>
+    <img src="images\time-to-plant-logo.png" class="w-25 m-3">
+    <div class="container mb-5">
+        <div class="d-flex justify-content-center">
+            <i class="fas fa-user-circle fa-10x"></i>
         </div>
     </div>
-    <div class="plants"></div>
+    <h1 class="display-4 m-5">My Plants</h1>
+    <div class="plants">
+    </div>
     <footer class="text-center text-lg-start bg-light text-muted fixed-bottom">
         <!-- Section: menu -->
         <section class="d-flex justify-content-center justify-content-lg-between p-4 border-top">

@@ -15,6 +15,11 @@ def get_client():
     return FileResponse('client\index.html')
 
 
+@app.get("/profile")
+def get_user_profile():
+    return FileResponse('client\profile.html')
+
+
 @app.get("/plants")
 def get_plants():
     return get_all_plants()
