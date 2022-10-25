@@ -4,6 +4,7 @@ from fastapi.responses import FileResponse
 import uvicorn
 from db_manager import get_all_plants
 
+
 app = FastAPI()
 
 app.mount("/client", StaticFiles(directory="client"), name="client")
