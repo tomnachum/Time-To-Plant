@@ -2,6 +2,6 @@ class Plants {
     constructor() {}
 
     getPlants() {
-        return $.get("");
+        return $.get("/plants");
     }
 }

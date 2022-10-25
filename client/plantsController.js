@@ -1,2 +1,6 @@
 const renderer = new Renderer();
-const players = new Plants();
+const plants = new Plants();
+
+plants.getPlants().then((plants) => {
+    renderer.render(plants);
+});

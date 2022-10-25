@@ -10,7 +10,7 @@ plants = [Plant('Aglaonema', '', 'aglaonema.jpg', 3),
 db_manager.add_plants(plants)
 
 users = [{"name": "Shaked", "email": "shaked@gmail.com",
-          "phone_number": "054-1234567"}]
+          "phone_number": "0541234567"}]
 for user in users:
     db_manager.add_user(user["name"], user['email'], user['phone_number'])
 

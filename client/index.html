@@ -29,8 +29,8 @@
             {{#each plants}}
             <div class="container">
                 <div class="row">
-                    <div class="card mb-3 data-id={{this.id}}>
-                        <img src="http://localhost:8000/images/aglaonema.jpg" class="card-img-top" alt="Wild Landscape" />
+                    <div class="card mb-3" data-id={{this.id}}>
+                        <img src="/images/{{this.image}}" class="card-img-top" alt="Wild Landscape"/>
                         <div class="card-body">
                             <h5 class="card-title">{{this.name}}</h5>
                             <p class="card-text">
@@ -63,7 +63,7 @@
     <div class="container">
         <div class="row">
             <div class="card mb-3" data-id="1">
-                <img src="http://localhost:8000/images/aglaonema.jpg" class="card-img-top" alt="Wild Landscape" />
+                <img src="/images/aglaonema.jpg" class="card-img-top" alt="Wild Landscape" />
                 <div class="card-body">
                     <h5 class="card-title">Card title</h5>
                     <p class="card-text">
@@ -95,7 +95,11 @@
     </footer>
     <!-- MDB -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/5.0.0/mdb.min.js"></script>
-
+    <script src="https://code.jquery.com/jquery-3.6.0.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.4/handlebars.js"></script>
+    <script src="client\plants.js"></script>
+    <script src="client\renderer.js"></script>
+    <script src="client\plantsController.js"></script>
 </body>
 
 </html>
