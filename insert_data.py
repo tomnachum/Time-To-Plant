@@ -31,7 +31,7 @@ for user_plants in users_plants:
 user_notifications = [
     {"user_id": 1, "plant_id": 1, "time_in_UNIX_TIMESTAMP": 12345678},
     {"user_id": 1, "plant_id": 2, "time_in_UNIX_TIMESTAMP": 12345678},
-    {"user_id": 1, "plant_id": 2, "time_in_UNIX_TIMESTAMP": 12345678},
+    {"user_id": 1, "plant_id": 3, "time_in_UNIX_TIMESTAMP": 12345678},
     {"user_id": 2, "plant_id": 2, "time_in_UNIX_TIMESTAMP": 12345678},
     {"user_id": 2, "plant_id": 3, "time_in_UNIX_TIMESTAMP": 12345678},
     {"user_id": 3, "plant_id": 1, "time_in_UNIX_TIMESTAMP": 12345678},

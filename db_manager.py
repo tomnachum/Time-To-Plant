@@ -90,7 +90,9 @@ def get_data_for_whatsapp():
     try:
         with connection.cursor() as cursor:
             query = f"""
-                    SELECT u.name as user_name, p.name as plant_name, u.phone_number FROM users as u, users_notifications as un, plants as p WHERE u.id = un.user_id AND un.plant_id = p.id
+                    SELECT u.name as user_name, p.name as plant_name, u.phone_number 
+                    FROM users as u, users_notifications as un, plants as p 
+                    WHERE u.id = un.user_id AND un.plant_id = p.id
                     """
             cursor.execute(query)
             result = cursor.fetchall()

@@ -3,7 +3,7 @@ import requests
 
 
 PHONE_NUMBER_ID = "101948529390348"
-ACCESS_TOKEN = "EAAUg6nCLVA0BAMgSTeK1FCPCBtPjj19ZCiPuG0bVjMtAckIDeyZBAz1yfw7jPHAbMIGBZAcqjUArI9UqYWw8FyK9mHERA2yMXivwM9W1Ec0dUvhM22SMwwiy9xrSoZB1ZBjRpeNspQCUFvqa5JTIhKGTHGD1QgjS3DRItJkfgdhzBPt4nuwRugXVqJT9T67PHXCD2QZAKipMaodQWBu1wJ8xD4M02qHF4ZD"
+ACCESS_TOKEN = "EAAUg6nCLVA0BAIXQ7UFjBWvdTJkd4J434y973FZAZAqxOytxv17yE2kAVacbOjWiQU5U1MdZBOUpd2JaRrMK4sKPJ21aP8MvmNaRTmtsjNEp97XNyvoWotgr6OwZCncoNNehqteuFcY3X0IHDPRolk2se8ONz3SZCCbFcks5ju8rbDCLYJrRDb61d5axgNwoF9ZAOPiCxQvAA2COTEFcLtZCmfrpPThvJQZD"
 ISRAEL = "972"
 URL = f"https://graph.facebook.com/v14.0/{PHONE_NUMBER_ID}/messages"
 HEADERS = {
@@ -36,6 +36,3 @@ def sendMessage(recipient_phone_number: str, user_name: str, plant_name: str):
     print(response.ok)
     print(response.status_code)
     print(response.content)
-
-
-sendMessage("0504448908", "x", "y")

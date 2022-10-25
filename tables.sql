@@ -16,20 +16,18 @@ use time_to_plant;
 -- CREATE TABLE users_plants(
 --     user_id INT,
 --     plant_id INT,
+--     PRIMARY KEY (user_id, plant_id),
 --     FOREIGN KEY (user_id) REFERENCES users(id),
 --     FOREIGN KEY (plant_id) REFERENCES plants(id)
 -- );
 -- CREATE TABLE users_notifications(
 --     user_id INT,
 --     plant_id INT,
+--     PRIMARY KEY (user_id, plant_id),
 --     time_in_UNIX_TIMESTAMP VARCHAR(255),
 --     FOREIGN KEY (user_id) REFERENCES users(id),
 --     FOREIGN KEY (plant_id) REFERENCES plants(id)
 -- );
-
-
-
-
-
--- SELECT * FROM users
-
+-- drop database time_to_plant;
+-- SELECT *
+-- FROM users;
