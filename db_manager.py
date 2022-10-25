@@ -5,10 +5,10 @@ from plant import Plant
 connection = pymysql.connect(
     host="localhost",
     user="root",
-    password="123456",
+    password="",
     db="time_to_plant",
     charset="utf8",
-    cursorclass=pymysql.cursors.DictCursor
+    cursorclass=pymysql.cursors.DictCursor,
 )
 
 if connection.open:
@@ -21,7 +21,8 @@ def add_plants(plants: List[Plant]):
             values = []
             for plant in plants:
                 values.append(
-                    f'("{plant.name}", "{plant.description}", "{plant.image}", {plant.watering_gaps})')
+                    f'("{plant.name}", "{plant.description}", "{plant.image}", {plant.watering_gaps})'
+                )
             query = f"INSERT ignore into plants(name, description, image, watering_gaps) values{','.join(values)};"
             print(query)
             cursor.execute(query)
@@ -49,7 +50,7 @@ def add_plants_to_user(user_id: int, plants: List[int]):
         with connection.cursor() as cursor:
             values = []
             for plant_id in plants:
-                values.append(f'({user_id}, {plant_id})')
+                values.append(f"({user_id}, {plant_id})")
             query = f"INSERT ignore into users_plants(user_id, plant_id) values {','.join(values)};"
             cursor.execute(query)
             connection.commit()
@@ -69,3 +70,17 @@ def add_notification(user_id, plant_id, time_in_UNIX_TIMESTAMP):
             print(result)
     except:
         print("DB Error")
+
+
+def get_all_plants():
+    try:
+        with connection.cursor() as cursor:
+            query = f"""
+                    SELECT *
+                    FROM plants
+                    """
+            cursor.execute(query)
+            result = cursor.fetchall()
+            return result
+    except Exception as e:
+        print(e)
