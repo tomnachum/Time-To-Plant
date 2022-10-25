@@ -63,7 +63,7 @@ def add_plants_to_user(user_id: int, plants: List[int]):
 def add_notification(user_id, plant_id, time_in_UNIX_TIMESTAMP):
     try:
         with connection.cursor() as cursor:
-            query = f"INSERT ignore into users_notifications(user_id, plant_id, time_in_UNIX_TIMESTAMP) values({user_id},{plant_id},{time_in_UNIX_TIMESTAMP});"
+            query = f"INSERT ignore into users_notifications(user_id, plant_id, time_in_UNIX_TIMESTAMP) values({user_id},{plant_id},'{time_in_UNIX_TIMESTAMP}');"
             cursor.execute(query)
             connection.commit()
             result = cursor.fetchall()
