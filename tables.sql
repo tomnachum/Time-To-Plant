@@ -30,4 +30,6 @@ use time_to_plant;
 
 
 
-SELECT * FROM users
+
+-- SELECT * FROM users
+
