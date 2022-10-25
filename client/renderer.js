@@ -1,6 +1,5 @@
 class Renderer {
     constructor() {}
-
     render(plants) {
         const source = $("#plants-template").html();
         const template = Handlebars.compile(source);

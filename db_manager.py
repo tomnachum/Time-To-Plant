@@ -102,7 +102,7 @@ def get_data_for_whatsapp():
         print(e)
 
 
-# test
+# test12
 def add_to_users_test():
     try:
         with connection.cursor() as cursor:

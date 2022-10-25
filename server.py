@@ -7,6 +7,7 @@ from db_manager import get_all_plants, add_plants_to_user, add_notification
 
 app = FastAPI()
 
+
 app.mount("/client", StaticFiles(directory="client"), name="client")
 
 
