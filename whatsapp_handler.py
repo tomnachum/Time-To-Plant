@@ -26,6 +26,3 @@ def sendMessage(recipient_phone_number: str):
     response = requests.post(URL, headers=HEADERS, data=json.dumps(data))
     print(response.ok)
     print(response.status_code)
-
-
-sendMessage("0545400958")
