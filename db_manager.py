@@ -84,3 +84,35 @@ def get_all_plants():
             return result
     except Exception as e:
         print(e)
+
+
+def get_data_for_whatsapp():
+    try:
+        with connection.cursor() as cursor:
+            query = f"""
+                    SELECT u.name as user_name, p.name as plant_name, u.phone_number FROM users as u, users_notifications as un, plants as p WHERE u.id = un.user_id AND un.plant_id = p.id
+                    """
+            cursor.execute(query)
+            result = cursor.fetchall()
+            print(result)
+            return result
+    except Exception as e:
+        print(e)
+
+
+# test
+def add_to_users_test():
+    try:
+        with connection.cursor() as cursor:
+            query = (
+                f'INSERT into users values(2, "matan", "email@gmail.com", "0504448908")'
+            )
+            cursor.execute(query)
+            connection.commit()
+            result = cursor.fetchall()
+            print(result)
+    except:
+        print("DB Error")
+
+
+get_data_for_whatsapp()
