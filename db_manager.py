@@ -10,6 +10,7 @@ connection = pymysql.connect(
     charset="utf8",
     cursorclass=pymysql.cursors.DictCursor,
 )
+connection.autocommit(True)
 
 if connection.open:
     print("the connection is opened")
@@ -24,11 +25,8 @@ def add_plants(plants: List[Plant]):
                     f'("{plant.name}", "{plant.description}", "{plant.image}", {plant.watering_gaps})'
                 )
             query = f"INSERT ignore into plants(name, description, image, watering_gaps) values{','.join(values)};"
-            print(query)
             cursor.execute(query)
             connection.commit()
-            result = cursor.fetchall()
-            print(result)
     except:
         print("DB Error")
 
@@ -39,8 +37,6 @@ def add_user(user_name: str, email: str, phone_number: str):
             query = f"INSERT ignore into Users(name, email, phone_number) values('{user_name}', '{email}', '{phone_number}');"
             cursor.execute(query)
             connection.commit()
-            result = cursor.fetchall()
-            print(result)
     except:
         print("DB Error")
 
@@ -54,8 +50,6 @@ def add_plants_to_user(user_id: int, plants: List[int]):
             query = f"INSERT ignore into users_plants(user_id, plant_id) values {','.join(values)};"
             cursor.execute(query)
             connection.commit()
-            result = cursor.fetchall()
-            print(result)
     except:
         print("DB Error")
 
@@ -66,8 +60,6 @@ def add_notification(user_id, plant_id, time_in_UNIX_TIMESTAMP):
             query = f"INSERT ignore into users_notifications(user_id, plant_id, time_in_UNIX_TIMESTAMP) values({user_id},{plant_id},'{time_in_UNIX_TIMESTAMP}');"
             cursor.execute(query)
             connection.commit()
-            result = cursor.fetchall()
-            print(result)
     except:
         print("DB Error")
 
@@ -96,7 +88,6 @@ def get_data_for_whatsapp():
                     """
             cursor.execute(query)
             result = cursor.fetchall()
-            print(result)
             return result
     except Exception as e:
         print(e)
