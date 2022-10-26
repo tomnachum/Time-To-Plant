@@ -1,6 +1,8 @@
 const renderer = new Renderer();
 const plants = new Plants();
 userId = 1;
+$(".profile").addClass("active");
+$(".home").removeClass("active");
 plants.getUserPlants(userId).then(plants => {
   renderer.render(plants);
 });
