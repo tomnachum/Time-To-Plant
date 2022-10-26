@@ -34,4 +34,3 @@ use time_to_plant;
 
 -- DROP database time_to_plant
 
-SELECT GROUP_CONCAT(concat(' ' ,p.name) ) as plants_names ,u.name as user_name, p.name as plant_name, u.phone_number FROM users as u, users_notifications as un, plants as p WHERE u.id = un.user_id AND un.plant_id = p.id GROUP BY u.name 
