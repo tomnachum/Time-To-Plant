@@ -5,7 +5,7 @@ from plant import Plant
 connection = pymysql.connect(
     host="localhost",
     user="root",
-    password="",
+    password="123456",
     db="time_to_plant",
     charset="utf8",
     cursorclass=pymysql.cursors.DictCursor,
@@ -97,6 +97,21 @@ def get_all_plants():
                     SELECT *
                     FROM plants
                     """
+            cursor.execute(query)
+            result = cursor.fetchall()
+            return result
+    except Exception as e:
+        print(e)
+
+
+def get_plant_by_name(plant_name):
+    try:
+        with connection.cursor() as cursor:
+            query = f"""
+                    SELECT * FROM plants
+                    where name='{plant_name}';
+                    """
+            print(query)
             cursor.execute(query)
             result = cursor.fetchall()
             return result
