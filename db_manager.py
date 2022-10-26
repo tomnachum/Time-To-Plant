@@ -136,4 +136,17 @@ def get_data_for_whatsapp():
         print(e)
 
 
-# get_data_for_whatsapp()
+def get_notifications_of_user(user_id):
+    try:
+        with connection.cursor() as cursor:
+            query = f"""
+                    SELECT plant_id
+                    FROM users as u JOIN users_notifications as un
+                    ON u.id = un.user_id
+                    WHERE user_id='{user_id}'
+                    """
+            cursor.execute(query)
+            result = cursor.fetchall()
+            return [e["plant_id"] for e in result]
+    except Exception as e:
+        print(e)
