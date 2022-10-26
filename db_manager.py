@@ -64,12 +64,53 @@ def add_notification(user_id, plant_id, time_in_UNIX_TIMESTAMP):
         print("DB Error")
 
 
+def delete_notification(user_id, plant_id):
+    try:
+        with connection.cursor() as cursor:
+            query = f"""
+            DELETE FROM users_notifications 
+            WHERE user_id={user_id} and plant_id={plant_id};
+            """
+            cursor.execute(query)
+            connection.commit()
+    except:
+        print("DB Error")
+
+
+def delete_plant_of_user(user_id, plant_id):
+    try:
+        with connection.cursor() as cursor:
+            query = f"""
+            DELETE FROM users_plants 
+            WHERE user_id={user_id} and plant_id={plant_id};
+            """
+            cursor.execute(query)
+            connection.commit()
+    except:
+        print("DB Error")
+
+
 def get_all_plants():
     try:
         with connection.cursor() as cursor:
             query = f"""
                     SELECT *
                     FROM plants
+                    """
+            cursor.execute(query)
+            result = cursor.fetchall()
+            return result
+    except Exception as e:
+        print(e)
+
+
+def get_user_plants(user_id):
+    try:
+        with connection.cursor() as cursor:
+            query = f"""
+                    SELECT p.id, p.name, p.description, p.image, p.watering_gaps 
+                    FROM users_plants as up, plants as p 
+                    where up.user_id={user_id} and up.plant_id=p.id;
                     """
             cursor.execute(query)
             result = cursor.fetchall()
@@ -91,21 +132,3 @@ def get_data_for_whatsapp():
             return result
     except Exception as e:
         print(e)
-
-
-# test12
-def add_to_users_test():
-    try:
-        with connection.cursor() as cursor:
-            query = (
-                f'INSERT into users values(2, "matan", "email@gmail.com", "0504448908")'
-            )
-            cursor.execute(query)
-            connection.commit()
-            result = cursor.fetchall()
-            print(result)
-    except:
-        print("DB Error")
-
-
-get_data_for_whatsapp()
