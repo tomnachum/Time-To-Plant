@@ -9,12 +9,13 @@ plants.isPaused(userId).then((isPaused) => {
 
 plants.getUserPlants(userId).then((plants) => {
   renderer.render(plants);
+  console.log(plants);
 });
 
 $(".plants").on("click", ".cancel-reminder", function () {
   userId = $(this).data().userId;
   plantId = $(this).data().plantId;
-  $(`#modal${plantId}`).modal("toggle");
+  // $(`#modal${plantId}`).modal("toggle");
   plants.deletePlantOfUser(userId, plantId).then((userPlants) => {
     renderer.render(userPlants);
   });

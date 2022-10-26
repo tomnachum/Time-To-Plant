@@ -30,3 +30,6 @@ use time_to_plant;
 --     FOREIGN KEY (user_id) REFERENCES users(id),
 --     FOREIGN KEY (plant_id) REFERENCES plants(id)
 -- );
+
+-- drop TABLE users_notifications
+
