@@ -1,5 +1,6 @@
 import json
 import requests
+import random
 
 
 PHONE_NUMBER_ID = "101948529390348"
@@ -10,6 +11,7 @@ HEADERS = {
     "Authorization": f"Bearer {ACCESS_TOKEN}",
     "Content-Type": "application/json",
 }
+IMAGES_IDS = ["1480842059102903", "3072135316265375"]
 
 
 def sendMessage(recipient_phone_number: str, user_name: str, plant_name: str):
@@ -19,9 +21,15 @@ def sendMessage(recipient_phone_number: str, user_name: str, plant_name: str):
         "recipient_type": "individual",
         "type": "template",
         "template": {
-            "name": "time_ro_plant_only_params",
+            "name": "time_to_plant_media",
             "language": {"code": "en_US"},
             "components": [
+                {
+                    "type": "header",
+                    "parameters": [
+                        {"type": "image", "image": {"id": random.choice(IMAGES_IDS)}}
+                    ],
+                },
                 {
                     "type": "body",
                     "parameters": [
@@ -36,3 +44,6 @@ def sendMessage(recipient_phone_number: str, user_name: str, plant_name: str):
     print(response.ok)
     print(response.status_code)
     print(response.content)
+
+
+sendMessage("0545400958", "tom", "hgggi")
