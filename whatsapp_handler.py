@@ -1,15 +1,17 @@
 import json
 import requests
+import random
 
 
 PHONE_NUMBER_ID = "101948529390348"
-ACCESS_TOKEN = "EAAUg6nCLVA0BAAsL6AhyEiZAWUir4D4Bs6JwP6mVZC79fZBsud35mrxmlabbnL8GqRz07UmIESBhHW1kPEh60yxQNW7ZAqpLZBBbbgWY4BdE1ZAA0WcFv9hKvx66aRzeaPUujvC0TRBaFWWZCrZBpterZBHQuWPZAmewNR6W5EjpzZCZC3BIXfVDVZAzuV9tG1N0OT32TYh9XZC8ZCuTeaSFBZCrjOaA"
+ACCESS_TOKEN = "EAAUg6nCLVA0BAEOQYoH9Df2TbRRKeZAtlmTpLnmKTShdzcwFazBxeA3OmBzjfgUPEh9sxtcBL1mTkwqyKAPrqjzqkNK37XH30MPBOxkuZCZBtjPFZCxU7YoZCYN8dqoZAo4NBc1svzQh57PIqc6fvkUebU5eZBHFh7c8QhbPQU5nH4uJ9AWtNa9t2Qdbmz2yuIszvLzGv0GYa1sYAHtgI3D"
 ISRAEL = "972"
 URL = f"https://graph.facebook.com/v14.0/{PHONE_NUMBER_ID}/messages"
 HEADERS = {
     "Authorization": f"Bearer {ACCESS_TOKEN}",
     "Content-Type": "application/json",
 }
+IMAGES_IDS = ["1480842059102903", "3072135316265375"]
 
 
 def sendMessage(recipient_phone_number: str, user_name: str, plant_name: str):
@@ -19,9 +21,15 @@ def sendMessage(recipient_phone_number: str, user_name: str, plant_name: str):
         "recipient_type": "individual",
         "type": "template",
         "template": {
-            "name": "time_ro_plant_only_params",
+            "name": "time_to_plant_media",
             "language": {"code": "en_US"},
             "components": [
+                {
+                    "type": "header",
+                    "parameters": [
+                        {"type": "image", "image": {"id": random.choice(IMAGES_IDS)}}
+                    ],
+                },
                 {
                     "type": "body",
                     "parameters": [
@@ -36,3 +44,6 @@ def sendMessage(recipient_phone_number: str, user_name: str, plant_name: str):
     print(response.ok)
     print(response.status_code)
     print(response.content)
+
+
+sendMessage("0545400958", "tom", "hgggi")

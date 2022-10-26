@@ -6,5 +6,6 @@ plants.getPlants().then((plants) => {
 $(".plants").on("click", ".add-reminder", function () {
     userId = $(this).data().userId;
     plantId = $(this).data().plantId;
+    $(`#modal${plantId}`).modal("toggle");
     plants.addPlantToUser(userId, plantId);
 });
