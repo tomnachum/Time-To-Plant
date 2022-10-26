@@ -3,6 +3,9 @@ const plants = new Plants();
 userId = 1;
 $(".profile").addClass("active");
 $(".home").removeClass("active");
+plants.isPaused(userId).then(isPaused => {
+  $(".pause").html(isPaused ? "Resume notifications" : "Pause notifications");
+});
 plants.getUserPlants(userId).then(plants => {
   renderer.render(plants);
 });
@@ -15,7 +18,17 @@ $(".plants").on("click", ".cancel-reminder", function () {
   });
 });
 $(".pause").on("click", function () {
-  plants.pausePlantsNotifications(userId).then(res => {
-    alert("Paused all notifications. :(");
+  plants.isPaused(userId).then(isPaused => {
+    if (isPaused) {
+      plants.resumePlantsNotifications(userId).then(res => {
+        alert("Resumed all notifications. :)");
+      });
+      $(".pause").html("Pause notifications");
+    } else {
+      plants.pausePlantsNotifications(userId).then(res => {
+        alert("Paused all notifications. :(");
+      });
+      $(".pause").html("Reusme notifications");
+    }
   });
 });

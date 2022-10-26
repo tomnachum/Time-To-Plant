@@ -13,12 +13,12 @@ app.mount("/client", StaticFiles(directory="client"), name="client")
 
 @app.get("/")
 def get_client():
-    return FileResponse('client\profile.html')
+    return FileResponse("client\profile.html")
 
 
 @app.get("/catalog")
 def get_user_profile():
-    return FileResponse('client\index.html')
+    return FileResponse("client\index.html")
 
 
 @app.get("/plants")
@@ -58,7 +58,22 @@ def delete_plant_of_user(user_id, plant_id):
 def pause_notification_of_user(user_id):
     for plant_id in db_manager.get_notifications_of_user(user_id):
         db_manager.delete_notification(user_id, plant_id)
-    return {"msg": "deleted notifications"}
+    return {"msg": "pauesd notifications"}
+
+
+@app.post("/users/{user_id}/notification")
+def resume_notification_of_user(user_id):
+    for plant_id in db_manager.get_plants_of_user(user_id):
+        db_manager.add_notification(user_id, plant_id, "")
+    return {"msg": "resume notifications"}
+
+
+@app.get("/isPaused/{user_id}")
+def is_paused(user_id):
+    return (
+        db_manager.get_notifications_of_user(user_id) == []
+        and db_manager.get_plants_of_user(user_id) != []
+    )
 
 
 if __name__ == "__main__":

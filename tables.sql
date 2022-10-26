@@ -33,3 +33,7 @@ use time_to_plant;
 -- FROM users;
 select *
 from users_notifications
+ORDER BY user_id;
+SELECT *
+FROM users_plants
+ORDER BY user_id;

@@ -5,7 +5,7 @@ from plant import Plant
 connection = pymysql.connect(
     host="localhost",
     user="root",
-    password="123456",
+    password="",
     db="time_to_plant",
     charset="utf8",
     cursorclass=pymysql.cursors.DictCursor,
@@ -158,6 +158,22 @@ def get_notifications_of_user(user_id):
                     SELECT plant_id
                     FROM users as u JOIN users_notifications as un
                     ON u.id = un.user_id
+                    WHERE user_id='{user_id}'
+                    """
+            cursor.execute(query)
+            result = cursor.fetchall()
+            return [e["plant_id"] for e in result]
+    except Exception as e:
+        print(e)
+
+
+def get_plants_of_user(user_id):
+    try:
+        with connection.cursor() as cursor:
+            query = f"""
+                    SELECT plant_id
+                    FROM users as u JOIN users_plants as up
+                    ON u.id = up.user_id
                     WHERE user_id='{user_id}'
                     """
             cursor.execute(query)
