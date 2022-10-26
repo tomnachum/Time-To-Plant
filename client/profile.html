@@ -34,8 +34,6 @@
                 src="/images/{{this.image}}"
                 class="card-img-top"
                 alt="Wild Landscape"
-                data-mdb-toggle="modal"
-                data-mdb-target="#modal{{this.id}}"
               />
 
               <!-- Modal -->
@@ -48,7 +46,7 @@
               >
                 <div class="modal-dialog">
                   <div class="modal-content">
-                    <div class="modal-header">
+                    <div class="modal-header">{{this.name}}'s note
                       <button
                         type="button"
                         class="btn-close"
@@ -57,31 +55,22 @@
                       ></button>
                     </div>
                     <div class="modal-body">
-                      <img
-                        src="/images/{{this.image}}"
-                        class="card-img-top"
-                        alt="Wild Landscape"
-                      />
-                      <h5
-                        class="modal-title"
-                        id="exampleModalLabel"
-                      >{{this.name}}</h5>
-                      This is a wider card with supporting text below as a
-                      natural lead-in to additional content. This content is a
-                      little bit longer.
+                      <div class="form-outline">
+                        <textarea
+                          type="text"
+                          id="typeText"
+                          class="form-control note"
+                        >{{this.note}}</textarea>
+                        <label class="form-label" for="typeText"></label>
+                      </div>
                     </div>
                     <div class="modal-footer">
                       <button
                         type="button"
-                        class="btn btn-secondary"
+                        class="btn btn-secondary note-btn"
                         data-mdb-dismiss="modal"
-                      >Close</button>
-                      <button
-                        type="button"
-                        class="btn btn-primary cancel-reminder"
-                        data-plant-id="{{this.id}}"
-                        data-user-id="1"
-                      >cancel reminder</button>
+                      >Save note</button>
+
                     </div>
                   </div>
                 </div>
@@ -93,6 +82,20 @@
                   lead-in to additional content. This content is a little bit
                   longer.
                 </p>
+                <button
+                  type="button"
+                  class="btn btn-primary cancel-reminder"
+                  data-plant-id="{{this.id}}"
+                  data-user-id="1"
+                >oops dead</button>
+                <button
+                  type="button"
+                  class="btn btn-primary add-note"
+                  data-plant-id="{{this.id}}"
+                  data-user-id="1"
+                  data-mdb-toggle="modal"
+                  data-mdb-target="#modal{{this.id}}"
+                >note</button>
                 <p class="card-text">
                   {{this.description}}</p>
               </div>

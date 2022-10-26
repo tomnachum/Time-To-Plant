@@ -41,13 +41,13 @@ def add_user(user_name: str, email: str, phone_number: str):
         print("DB Error")
 
 
-def add_plants_to_user(user_id: int, plants: List[int]):
+def add_plants_to_user(user_id: int, plants: List[int], note=""):
     try:
         with connection.cursor() as cursor:
             values = []
             for plant_id in plants:
-                values.append(f"({user_id}, {plant_id})")
-            query = f"INSERT ignore into users_plants(user_id, plant_id) values {','.join(values)};"
+                values.append(f'({user_id}, {plant_id}, "{note}")')
+            query = f"INSERT ignore into users_plants(user_id, plant_id, note) values {','.join(values)};"
             cursor.execute(query)
             connection.commit()
     except:
@@ -123,7 +123,7 @@ def get_user_plants(user_id):
     try:
         with connection.cursor() as cursor:
             query = f"""
-                    SELECT p.id, p.name, p.description, p.image, p.watering_gaps 
+                    SELECT p.id, p.name, p.description, p.image, p.watering_gaps, up.note
                     FROM users_plants as up, plants as p 
                     where up.user_id={user_id} and up.plant_id=p.id;
                     """
@@ -179,5 +179,21 @@ def get_plants_of_user(user_id):
             cursor.execute(query)
             result = cursor.fetchall()
             return [e["plant_id"] for e in result]
+    except Exception as e:
+        print(e)
+
+
+def update_note(user_id, plant_id, note):
+    try:
+        with connection.cursor() as cursor:
+            query = f"""
+                    UPDATE users_plants
+                    SET note = '{note}'
+                    WHERE user_id = {user_id} AND plant_id = {plant_id};
+                    """
+            cursor.execute(query)
+            result = cursor.fetchall()
+            print(result)
+            return result
     except Exception as e:
         print(e)

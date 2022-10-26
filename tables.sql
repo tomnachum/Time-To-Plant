@@ -1,5 +1,6 @@
 -- create database time_to_plant;
 use time_to_plant;
+
 -- CREATE TABLE users(
 --     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 --     name VARCHAR(255),
@@ -16,6 +17,7 @@ use time_to_plant;
 -- CREATE TABLE users_plants(
 --     user_id INT,
 --     plant_id INT,
+--     note VARCHAR(4096),
 --     PRIMARY KEY (user_id, plant_id),
 --     FOREIGN KEY (user_id) REFERENCES users(id),
 --     FOREIGN KEY (plant_id) REFERENCES plants(id)
@@ -28,12 +30,3 @@ use time_to_plant;
 --     FOREIGN KEY (user_id) REFERENCES users(id),
 --     FOREIGN KEY (plant_id) REFERENCES plants(id)
 -- );
--- drop database time_to_plant;
--- SELECT *
--- FROM users;
-select *
-from users_notifications
-ORDER BY user_id;
-SELECT *
-FROM users_plants
-ORDER BY user_id;

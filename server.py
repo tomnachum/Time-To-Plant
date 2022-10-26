@@ -1,4 +1,4 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
 import uvicorn
@@ -74,6 +74,12 @@ def is_paused(user_id):
         db_manager.get_notifications_of_user(user_id) == []
         and db_manager.get_plants_of_user(user_id) != []
     )
+
+
+@app.put("/users/{user_id}/plants/{plant_id}")
+async def update_note(user_id, plant_id, request: Request):
+    body = await request.json()
+    return db_manager.update_note(user_id, plant_id, body["noteStr"])
 
 
 if __name__ == "__main__":
