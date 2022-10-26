@@ -13,17 +13,22 @@ app.mount("/client", StaticFiles(directory="client"), name="client")
 
 @app.get("/")
 def get_client():
-    return FileResponse("client\index.html")
+    return FileResponse('client\profile.html')
 
 
-@app.get("/profile")
+@app.get("/catalog")
 def get_user_profile():
-    return FileResponse("client\profile.html")
+    return FileResponse('client\index.html')
 
 
 @app.get("/plants")
 def get_plants():
     return db_manager.get_all_plants()
+
+
+@app.get("/search")
+def search(plant_name):
+    return db_manager.get_plant_by_name(plant_name)
 
 
 @app.get("/plants/{user_id}")
