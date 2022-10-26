@@ -123,12 +123,17 @@ def get_data_for_whatsapp():
     try:
         with connection.cursor() as cursor:
             query = f"""
-                    SELECT u.name as user_name, p.name as plant_name, u.phone_number 
+                    SELECT GROUP_CONCAT(concat(' ' ,p.name) ) as plants_names ,u.name as user_name, p.name as plant_name, u.phone_number 
                     FROM users as u, users_notifications as un, plants as p 
-                    WHERE u.id = un.user_id AND un.plant_id = p.id
+                    WHERE u.id = un.user_id AND un.plant_id = p.id 
+                    GROUP BY u.name 
                     """
             cursor.execute(query)
             result = cursor.fetchall()
+            print(result)
             return result
     except Exception as e:
         print(e)
+
+
+# get_data_for_whatsapp()

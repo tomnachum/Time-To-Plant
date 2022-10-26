@@ -18,10 +18,12 @@ import schedule
 def sendWhatsappAlert():
     data_to_send_on_whatsapp_array = get_data_for_whatsapp()
     for dataUnit in data_to_send_on_whatsapp_array:
-        # sendMessage(
-        #     dataUnit["phone_number"], dataUnit["user_name"], dataUnit["plant_name"]
-        # )
-        print(dataUnit)
+        sendMessage(
+            dataUnit["phone_number"],
+            dataUnit["user_name"],
+            dataUnit["plants_names"][1:],
+        )
+
     return
 
 
