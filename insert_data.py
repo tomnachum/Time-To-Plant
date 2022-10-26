@@ -21,12 +21,14 @@ for user in users:
     db_manager.add_user(user["name"], user["email"], user["phone_number"])
 
 users_plants = [
-    {"user_id": 1, "plants_id": [1, 2, 3]},
-    {"user_id": 2, "plants_id": [2, 3]},
-    {"user_id": 3, "plants_id": [1, 3]},
+    {"user_id": 1, "plants_id": [1, 2, 3], "note": "need more sun"},
+    {"user_id": 2, "plants_id": [2, 3], "note": "need more water!"},
+    {"user_id": 3, "plants_id": [1, 3], "note": "need new one"},
 ]
 for user_plants in users_plants:
-    db_manager.add_plants_to_user(user_plants["user_id"], user_plants["plants_id"])
+    db_manager.add_plants_to_user(
+        user_plants["user_id"], user_plants["plants_id"], user_plants["note"]
+    )
 
 user_notifications = [
     {"user_id": 1, "plant_id": 1, "time_in_UNIX_TIMESTAMP": 12345678},

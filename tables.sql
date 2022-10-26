@@ -1,5 +1,6 @@
 -- create database time_to_plant;
 use time_to_plant;
+
 -- CREATE TABLE users(
 --     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 --     name VARCHAR(255),
@@ -16,6 +17,7 @@ use time_to_plant;
 -- CREATE TABLE users_plants(
 --     user_id INT,
 --     plant_id INT,
+--     note VARCHAR(4096),
 --     PRIMARY KEY (user_id, plant_id),
 --     FOREIGN KEY (user_id) REFERENCES users(id),
 --     FOREIGN KEY (plant_id) REFERENCES plants(id)
@@ -30,7 +32,20 @@ use time_to_plant;
 -- );
 -- drop database time_to_plant;
 -- SELECT *
--- FROM users;
+-- FROM users_plants;
 
 -- DROP database time_to_plant
 
+-- DROP database time_to_plant
+
+
+-- INSERT INTO users_plants VALUES (1, 4, "hiiii")
+
+
+-- UPDATE users_plants
+-- SET note = "sha"
+-- WHERE user_id = 1 AND plant_id = 4;
+
+
+
+SELECT * FROM users_plants
