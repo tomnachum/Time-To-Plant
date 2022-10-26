@@ -23,4 +23,10 @@ class Plants {
             type: "DELETE",
         });
     }
+    pausePlantsNotifications(userId) {
+        return $.ajax({
+            url: `/users/${userId}/notification`,
+            type: "DELETE",
+        });
+    }
 }

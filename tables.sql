@@ -31,3 +31,5 @@ use time_to_plant;
 -- drop database time_to_plant;
 -- SELECT *
 -- FROM users;
+select *
+from users_notifications

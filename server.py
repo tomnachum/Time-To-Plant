@@ -54,5 +54,12 @@ def delete_plant_of_user(user_id, plant_id):
     return db_manager.get_user_plants(user_id)
 
 
+@app.delete("/users/{user_id}/notification")
+def pause_notification_of_user(user_id):
+    for plant_id in db_manager.get_notifications_of_user(user_id):
+        db_manager.delete_notification(user_id, plant_id)
+    return {"msg": "deleted notifications"}
+
+
 if __name__ == "__main__":
     uvicorn.run("server:app", host="0.0.0.0", port=8000, reload=True)

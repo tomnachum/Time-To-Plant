@@ -1,7 +1,9 @@
 const renderer = new Renderer();
 const plants = new Plants();
-plants.getPlants().then((plants) => {
-    renderer.render(plants);
+$(".profile").removeClass("active");
+$(".home").addClass("active");
+plants.getPlants().then(plants => {
+  renderer.render(plants);
 });
 plants.getPlantsNames().then((plants_names) => {
     const autoCompleteJS = new autoComplete({
@@ -27,8 +29,8 @@ plants.getPlantsNames().then((plants_names) => {
     });
 });
 $(".plants").on("click", ".add-reminder", function () {
-    userId = $(this).data().userId;
-    plantId = $(this).data().plantId;
-    $(`#modal${plantId}`).modal("toggle");
-    plants.addPlantToUser(userId, plantId);
+  userId = $(this).data().userId;
+  plantId = $(this).data().plantId;
+  $(`#modal${plantId}`).modal("toggle");
+  plants.addPlantToUser(userId, plantId);
 });

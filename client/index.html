@@ -2,23 +2,24 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@10.2.7/dist/css/autoComplete.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@10.2.7/dist/autoComplete.min.js"></script>
-    <!-- Font Awesome -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
-    <!-- MDB -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/5.0.0/mdb.min.css" rel="stylesheet" />
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@10.2.7/dist/css/autoComplete.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@10.2.7/dist/autoComplete.min.js"></script>
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+  <!-- MDB -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/5.0.0/mdb.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="client/style.css" />
 </head>
 
 <body>
-    <script id="plants-template" type="text/x-handlebars-template">
+  <script id="plants-template" type="text/x-handlebars-template">
             {{#each plants}}
             <div class="container">
                 <div class="row">
@@ -59,47 +60,47 @@
             </div>
                 {{/each}}
     </script>
-    <div class="container m-2">
-        <div class="container">
-            <div class="row">
-                <div class="d-flex justify-content-center">
-                    <img src="images\time-to-plant-logo.png" class="w-50 m-3">
-                </div>
-                <div class=" input-group d-flex justify-content-left mb-3 mt-3 vw-100">
-                    <div class="autoComplete_wrapper">
-                        <input id="autoComplete" type="search" dir="ltr" spellcheck=false autocorrect="off"
-                            autocomplete="off" autocapitalize="off">
-                    </div>
-                </div>
-            </div>
+  <div class="container m-2">
+    <div class="container">
+      <div class="row">
+        <div class="d-flex justify-content-center">
+          <img src="images\time-to-plant-logo.png" class="w-50 m-3">
         </div>
-        <div class="plants"></div>
+        <div class=" input-group d-flex justify-content-left mb-3 mt-3 vw-100">
+          <div class="autoComplete_wrapper">
+            <input id="autoComplete" type="search" dir="ltr" spellcheck=false autocorrect="off" autocomplete="off"
+              autocapitalize="off">
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="m-4 p-3"></div>
-    <footer class="text-center text-lg-start bg-light text-muted fixed-bottom">
-        <!-- Section: menu -->
-        <section class="d-flex justify-content-center justify-content-lg-between p-3 border-top">
-            <div>
-                <a href="/" class="me-5 text-reset">
-                    <i class="fas fa-user-circle fa-2x"></i>
-                </a>
-                <a href="/catalog" class="me-5 text-reset">
-                    <i class="fas fa-home fa-2x"></i>
-                </a>
-                <a href="" class=" text-reset">
-                    <i class="fas fa-sign-out-alt fa-2x"></i>
-                </a>
-            </div>
-        </section>
-    </footer>
+    <div class="plants"></div>
+  </div>
+  <div class="m-4 p-3"></div>
+  <footer class="text-center text-lg-start bg-light text-muted fixed-bottom">
+    <!-- Section: menu -->
+    <section class="d-flex justify-content-center justify-content-lg-between p-3 border-top">
+      <div>
+        <a href="/" class="me-5 text-reset">
+          <i class="fas fa-user-circle fa-2x profile"></i>
+        </a>
+        <a href="/catalog" class="me-5 text-reset">
+          <i class="fas fa-home fa-2x home"></i>
+        </a>
+        <a href="" class=" text-reset">
+          <i class="fas fa-sign-out-alt fa-2x"></i>
+        </a>
+      </div>
+    </section>
+  </footer>
 
-    <!-- MDB -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/5.0.0/mdb.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.js" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.4/handlebars.js"></script>
-    <script src="client\plants.js"></script>
-    <script src="client\renderer.js"></script>
-    <script src="client\plantsController.js"></script>
+  <!-- MDB -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/5.0.0/mdb.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.4/handlebars.js"></script>
+  <script src="client\plants.js"></script>
+  <script src="client\renderer.js"></script>
+  <script src="client\plantsController.js"></script>
 
 </body>
 
