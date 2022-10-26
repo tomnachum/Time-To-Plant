@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
 import uvicorn
-from db_manager import get_all_plants, add_plants_to_user, add_notification
+import db_manager
 
 
 app = FastAPI()
@@ -23,7 +23,12 @@ def get_user_profile():
 
 @app.get("/plants")
 def get_plants():
-    return get_all_plants()
+    return db_manager.get_all_plants()
+
+
+@app.get("/plants/{user_id}")
+def get_user_plant(user_id):
+    return db_manager.get_user_plants(user_id)
 
 
 @app.get("/images/{image_name}")
@@ -33,8 +38,15 @@ def images(image_name):
 
 @app.post("/users/{user_id}/plants/{plant_id}")
 def add_plant_to_user(user_id, plant_id):
-    add_notification(user_id, plant_id, "")
-    return add_plants_to_user(user_id, [plant_id])
+    db_manager.add_notification(user_id, plant_id, "")
+    db_manager.add_plants_to_user(user_id, [plant_id])
+
+
+@app.delete("/users/{user_id}/plants/{plant_id}")
+def delete_plant_of_user(user_id, plant_id):
+    db_manager.delete_notification(user_id, plant_id)
+    db_manager.delete_plant_of_user(user_id, plant_id)
+    return db_manager.get_user_plants(user_id)
 
 
 if __name__ == "__main__":
