@@ -18,10 +18,9 @@ import schedule
 def sendWhatsappAlert():
     data_to_send_on_whatsapp_array = get_data_for_whatsapp()
     for dataUnit in data_to_send_on_whatsapp_array:
-        # sendMessage(
-        #     dataUnit["phone_number"], dataUnit["user_name"], dataUnit["plant_name"]
-        # )
-        print(dataUnit)
+        sendMessage(
+            dataUnit["phone_number"], dataUnit["user_name"], dataUnit["plant_name"]
+        )
     return
 
 
@@ -29,7 +28,7 @@ def sendWhatsappAlert():
 #     print("I'm working...")
 
 
-schedule.every(10).seconds.do(sendWhatsappAlert)
+schedule.every(30).seconds.do(sendWhatsappAlert)
 # schedule.every(10).minutes.do(job)
 # schedule.every().hour.do(job)
 # schedule.every().day.at("10:30").do(job)
@@ -37,6 +36,7 @@ schedule.every(10).seconds.do(sendWhatsappAlert)
 # schedule.every().monday.do(job)
 # schedule.every().wednesday.at("13:15").do(job)
 
+time.sleep(5)
 while True:
     schedule.run_pending()
     time.sleep(1)

@@ -31,3 +31,9 @@ use time_to_plant;
 -- drop database time_to_plant;
 -- SELECT *
 -- FROM users;
+delete from users_notifications
+where user_id = 1
+    and plant_id = 4;
+delete from users_notifications
+where user_id = 1
+    and plant_id = 5;
