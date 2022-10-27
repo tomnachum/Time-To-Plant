@@ -4,9 +4,9 @@ import db_manager
 
 plants = [
     Plant(
-        "Succulent",
-        "succulent plants, also known as succulents, are plants with parts that are thickened, fleshy, and engorged, usually to retain water in arid climates or soil conditions.",
-        "Succulent.jfif",
+        "Cactus",
+        "cacti generally have thick herbaceous or woody chlorophyll-containing stems. Cacti can be distinguished from other succulent plants by the presence of areoles",
+        "Cactus.jpeg",
         3,
     ),
     Plant(
@@ -28,9 +28,9 @@ plants = [
         3,
     ),
     Plant(
-        "Cactus",
-        "cacti generally have thick herbaceous or woody chlorophyll-containing stems. Cacti can be distinguished from other succulent plants by the presence of areoles",
-        "Cactus.jpeg",
+        "Succulent",
+        "succulent plants, also known as succulents, are plants with parts that are thickened, fleshy, and engorged, usually to retain water in arid climates or soil conditions.",
+        "Succulent.jfif",
         3,
     ),
     Plant(
@@ -61,7 +61,7 @@ plants = [
 db_manager.add_plants(plants)
 
 users = [
-    {"name": "Itai", "email": "email@gmail.com", "phone_number": "0525645751"},
+    {"name": "Itay", "email": "email@gmail.com", "phone_number": "0525645751"},
     {"name": "Tom", "email": "tom@gmail.com", "phone_number": "0545400958"},
     {"name": "Matan", "email": "matan@gmail.com", "phone_number": "0504448908"},
     {"name": "Adi", "email": "email@gmail.com", "phone_number": "0547659131"},
