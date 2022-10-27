@@ -5,7 +5,7 @@ import db_manager
 plants = [
     Plant(
         "Succulent",
-        "succulent plants, also known as succulents, are plants with parts that are thickened, fleshy, and engorged, usually to retain water in arid climates or soil conditions. The word succulent comes from the Latin word sucus, meaning 'juice' or 'sap'",
+        "succulent plants, also known as succulents, are plants with parts that are thickened, fleshy, and engorged, usually to retain water in arid climates or soil conditions.",
         "Succulent.jfif",
         3,
     ),
@@ -47,13 +47,13 @@ plants = [
     ),
     Plant(
         "Diepenbachia",
-        "Dieffenbachia, commonly known as dumb cane or leopard lily, is a genus of tropical flowering plants in the family Araceae. It is native to the New World Tropics from Mexico and the West Indies south to Argentina. Some species are widely cultivated as ornamental plants, especially as houseplants, and have become naturalized on a few tropical islands.",
+        "Dieffenbachia, commonly known as dumb cane or leopard lily, is a genus of tropical flowering plants in the family Araceae. It is native to the New World Tropics from Mexico and the West Indies south to Argentina.",
         "Dieffenbachia_.jpg",
         3,
     ),
     Plant(
         "Philodendron",
-        "Philodendron is a large genus of flowering plants in the family Araceae. As of September 2015, the World Checklist of Selected Plant Families accepted 489 species; other sources accept different numbers. Regardless of number of species, the genus is the second-largest member of the family Araceae, after genus Anthurium. Taxonomically, the genus Philodendron is still poorly known, with many undescribed species. Many are grown as ornamental and indoor plants.",
+        "Philodendron is a large genus of flowering plants in the family Araceae. As of September 2015, the World Checklist of Selected Plant Families accepted 489 species; other sources accept different numbers.",
         "pilo.jpg",
         3,
     ),

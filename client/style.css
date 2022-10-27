@@ -1,3 +1,7 @@
 .active {
   color: green;
 }
+
+.no-items {
+  margin-left: 20px;
+}

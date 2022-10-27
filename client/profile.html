@@ -1,137 +1,158 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- Font Awesome -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- MDB -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/5.0.0/mdb.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="client/style.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Document</title>
-  <!-- Font Awesome -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
-  <!-- MDB -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/5.0.0/mdb.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="client/style.css" />
-</head>
+  <body>
+    <script id="plants-template" type="text/x-handlebars-template">
+      {{#if plants.length}}
+        {{#each plants}}
+          <div class="container">
+            <div class="row">
+              <div class="card mb-3" data-id={{this.id}}>
+                <img
+                  src="/images/{{this.image}}"
+                  class="card-img-top"
+                  alt="Wild Landscape"
+                />
 
-<body>
-  <script id="plants-template" type="text/x-handlebars-template">
-      {{#each plants}}
-        <div class="container">
-          <div class="row">
-            <div class="card mb-3" data-id={{this.id}}>
-              <img
-                src="/images/{{this.image}}"
-                class="card-img-top"
-                alt="Wild Landscape"
-              />
-
-              <!-- Modal -->
-              <div
-                class="modal fade"
-                id="modal{{this.id}}"
-                tabindex="-1"
-                aria-labelledby="modalLabel{{this.id}}"
-                aria-hidden="true"
-              >
-                <div class="modal-dialog">
-                  <div class="modal-content">
-                    <div class="modal-header">{{this.name}}'s note
-                      <button
-                        type="button"
-                        class="btn-close"
-                        data-mdb-dismiss="modal"
-                        aria-label="Close"
-                      ></button>
-                    </div>
-                    <div class="modal-body">
-                      <div class="form-outline">
-                        <textarea
-                          type="text"
-                          id="typeText"
-                          class="form-control note"
-                        >{{this.note}}</textarea>
-                        <label class="form-label" for="typeText"></label>
+                <!-- Modal -->
+                <div
+                  class="modal fade"
+                  id="modal{{this.id}}"
+                  tabindex="-1"
+                  aria-labelledby="modalLabel{{this.id}}"
+                  aria-hidden="true"
+                >
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">{{this.name}}'s note
+                        <button
+                          type="button"
+                          class="btn-close"
+                          data-mdb-dismiss="modal"
+                          aria-label="Close"
+                        ></button>
                       </div>
-                    </div>
-                    <div class="modal-footer">
-                      <button
-                        type="button"
-                        class="btn btn-secondary note-btn"
-                        data-mdb-dismiss="modal"
-                      >Save note</button>
+                      <div class="modal-body">
+                        <div class="form-outline">
+                          <textarea
+                            type="text"
+                            id="typeText"
+                            class="form-control note"
+                          >{{this.note}}</textarea>
+                          <label class="form-label" for="typeText"></label>
+                        </div>
+                      </div>
+                      <div class="modal-footer">
+                        <button
+                          type="button"
+                          class="btn btn-secondary note-btn"
+                          data-mdb-dismiss="modal"
+                        >Save note</button>
 
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-              <div class="card-body">
-                <h5 class="card-title">{{this.name}}</h5>
-                <p class="card-text">
-                  {{this.description}}</p>
-                <button
-                  type="button"
-                  class="btn btn-primary cancel-reminder"
-                  data-plant-id="{{this.id}}"
-                  data-user-id="1"
-                >oops dead</button>
-                <button
-                  type="button"
-                  class="btn btn-primary add-note"
-                  data-plant-id="{{this.id}}"
-                  data-user-id="1"
-                  data-mdb-toggle="modal"
-                  data-mdb-target="#modal{{this.id}}"
-                >note</button>
-                <p class="card-text">
-                  {{this.description}}</p>
+                <div class="card-body">
+                  <h5 class="card-title">{{this.name}}</h5>
+                  <p class="card-text">
+                    {{this.description}}</p>
+                  <button
+                    type="button"
+                    class="btn btn-primary cancel-reminder"
+                    data-plant-id="{{this.id}}"
+                    data-user-id="1"
+                  >oops dead</button>
+                  <button
+                    type="button"
+                    class="btn btn-primary add-note"
+                    data-plant-id="{{this.id}}"
+                    data-user-id="1"
+                    data-mdb-toggle="modal"
+                    data-mdb-target="#modal{{this.id}}"
+                  >note</button>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      {{/each}}
+        {{/each}}
+      {{else}}
+        <p class="no-items">No items yet. Please select plants.</p>
+      {{/if}}
     </script>
-  <img src="images\time-to-plant-logo.png" class="w-25 m-3" />
-  <div class="container mb-5">
-    <div class="d-flex justify-content-center">
-      <i class="fas fa-user-circle fa-10x"></i>
-    </div>
-  </div>
-  <div class="container mb-5">
-    <div class="d-flex justify-content-end button-container">
-      <button type="button" class="btn btn-light pause" style="background-color: #e6e6e6">
-        Notifications
-      </button>
-    </div>
-    <hr />
-    <h1>My Plants</h1>
-  </div>
-  <div class="plants"></div>
-  <div class="m-4 p-3"></div>
-  <footer class="text-center text-lg-start bg-light text-muted fixed-bottom">
-    <!-- Section: menu -->
-    <section class="d-flex justify-content-center justify-content-lg-between p-3 border-top">
-      <div>
-        <a href="/" class="me-5 text-reset">
-          <i class="fas fa-user-circle fa-2x profile"></i>
-        </a>
-        <a href="/catalog" class="me-5 text-reset">
-          <i class="fas fa-home fa-2x home"></i>
-        </a>
-        <a href="" class="text-reset">
-          <i class="fas fa-sign-out-alt fa-2x"></i>
-        </a>
+    <img src="images\time-to-plant-logo.png" class="w-25 m-3" />
+    <div class="container mb-5">
+      <div class="d-flex justify-content-center">
+        <i class="fas fa-user-circle fa-10x"></i>
       </div>
-    </section>
-  </footer>
-  <!-- MDB -->
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/5.0.0/mdb.min.js"></script>
-  <script src="https://code.jquery.com/jquery-3.6.0.js" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.4/handlebars.js"></script>
-  <script src="client\plants.js"></script>
-  <script src="client\renderer.js"></script>
-  <script src="client\profileController.js"></script>
-</body>
-
+    </div>
+    <div class="container mb-5">
+      <div class="d-flex justify-content-end button-container">
+        <button
+          type="button"
+          class="btn btn-light pause"
+          style="background-color: #e6e6e6"
+        >
+          Notifications
+        </button>
+      </div>
+      <hr />
+      <h1>My Plants</h1>
+    </div>
+    <div class="plants"></div>
+    <div class="m-4 p-3"></div>
+    <footer class="text-center text-lg-start bg-light text-muted fixed-bottom">
+      <!-- Section: menu -->
+      <section
+        class="d-flex justify-content-center justify-content-lg-between p-3 border-top"
+      >
+        <div>
+          <a href="/" class="me-5 text-reset">
+            <i class="fas fa-user-circle fa-2x profile"></i>
+          </a>
+          <a href="/catalog" class="me-5 text-reset">
+            <i class="fas fa-home fa-2x home"></i>
+          </a>
+          <a href="" class="text-reset">
+            <i class="fas fa-sign-out-alt fa-2x"></i>
+          </a>
+        </div>
+      </section>
+    </footer>
+    <!-- MDB -->
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/5.0.0/mdb.min.js"
+    ></script>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.4/handlebars.js"></script>
+    <script src="client\plants.js"></script>
+    <script src="client\renderer.js"></script>
+    <script src="client\profileController.js"></script>
+  </body>
 </html>
