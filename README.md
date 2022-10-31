@@ -15,9 +15,11 @@ This is a full-stack mobile app that sends whatsapp notifications about watering
 ## Flow
 
 The user logs in to the home page, where he can choose his house plants from our list of plants, which are stored at our DB.
+
 <img src="screenshots/home page.png" style="height:400px">
 
 Then the user can see his plants in the profile page. every 24 hours the user will get a whatsapp notification that will remind him to water his plants.
+
 <img src="images/whatsapp.jpeg" style="height:400px">
 
 ## Features
@@ -31,11 +33,13 @@ Then the user can see his plants in the profile page. every 24 hours the user wi
 - Pause notifications
 
   The user can stop the notifications in any time, by pressing the pause button, in case he goes to a vacation or for Midbern party.
+
   <img src="screenshots/pause notifications button.png" style="height:400px">
 
 - Search bar
 
   We implemented a search bar that allows the user to search for plants by their name, more easily.
+
   <img src="screenshots/search bar example.png" style="height:400px">
 
 ## Tech Workflow
