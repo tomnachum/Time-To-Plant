@@ -12,6 +12,14 @@ Our solution offers the user an app to manage his houseplants.
 
 This is a full-stack mobile app that sends whatsapp notifications about watering plants, and allows to take notes about the users plants.
 
+## Running Instructions
+
+1. Initialize the DB:
+   use `tables.sql` to create time_to_plant DB, then create all the tables in this file.
+2. Run `insert_data.py` file to initialize the tables with mock data.
+3. Run `server.py` and go to localhost:8000 to see the app.
+4. Run `scheduler.py` to activate the whatsapp messaging.
+
 ## Flow
 
 The user logs in to the home page, where he can choose his house plants from our list of plants, which are stored at our DB.
@@ -27,7 +35,7 @@ Then the user can see his plants in the profile page. every 24 hours the user wi
 - Notes
 
   The user can add note to each plant, to help organize and keep track of the plant state.
-  
+
   <img src="screenshots/note button.png" style="height:400px">
 
 - Pause notifications
