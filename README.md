@@ -27,7 +27,6 @@ Then the user can see his plants in the profile page. every 24 hours the user wi
 - Notes
 
   The user can add note to each plant, to help organize and keep track of the plant state.
-
   <img src="screenshots/note button.png" style="height:400px">
 
 - Pause notifications
