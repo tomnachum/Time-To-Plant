@@ -18,6 +18,7 @@ if connection.open:
 
 def add_plants(plants: List[Plant]):
     try:
+        connection.ping()
         with connection.cursor() as cursor:
             values = []
             for plant in plants:
@@ -33,6 +34,7 @@ def add_plants(plants: List[Plant]):
 
 def add_user(user_name: str, email: str, phone_number: str):
     try:
+        connection.ping()
         with connection.cursor() as cursor:
             query = f"INSERT ignore into Users(name, email, phone_number) values('{user_name}', '{email}', '{phone_number}');"
             cursor.execute(query)
@@ -43,6 +45,7 @@ def add_user(user_name: str, email: str, phone_number: str):
 
 def add_plants_to_user(user_id: int, plants: List[int], note=""):
     try:
+        connection.ping()
         with connection.cursor() as cursor:
             values = []
             for plant_id in plants:
@@ -56,6 +59,7 @@ def add_plants_to_user(user_id: int, plants: List[int], note=""):
 
 def add_notification(user_id, plant_id, time_in_UNIX_TIMESTAMP):
     try:
+        connection.ping()
         with connection.cursor() as cursor:
             query = f"INSERT ignore into users_notifications(user_id, plant_id, time_in_UNIX_TIMESTAMP) values({user_id},{plant_id},'{time_in_UNIX_TIMESTAMP}');"
             cursor.execute(query)
@@ -66,6 +70,7 @@ def add_notification(user_id, plant_id, time_in_UNIX_TIMESTAMP):
 
 def delete_notification(user_id, plant_id):
     try:
+        connection.ping()
         with connection.cursor() as cursor:
             query = f"""
             DELETE FROM users_notifications 
@@ -79,6 +84,7 @@ def delete_notification(user_id, plant_id):
 
 def delete_plant_of_user(user_id, plant_id):
     try:
+        connection.ping()
         with connection.cursor() as cursor:
             query = f"""
             DELETE FROM users_plants 
@@ -92,20 +98,23 @@ def delete_plant_of_user(user_id, plant_id):
 
 def get_all_plants():
     try:
+        connection.ping()
         with connection.cursor() as cursor:
             query = f"""
                     SELECT *
-                    FROM plants
+                    FROM plants;
                     """
             cursor.execute(query)
             result = cursor.fetchall()
             return result
     except Exception as e:
+        print("in get_all_plants")
         print(e)
 
 
 def get_plant_by_name(plant_name):
     try:
+        connection.ping()
         with connection.cursor() as cursor:
             query = f"""
                     SELECT * FROM plants
@@ -121,6 +130,7 @@ def get_plant_by_name(plant_name):
 
 def get_user_plants(user_id):
     try:
+        connection.ping()
         with connection.cursor() as cursor:
             query = f"""
                     SELECT p.id, p.name, p.description, p.image, p.watering_gaps, up.note
@@ -136,6 +146,7 @@ def get_user_plants(user_id):
 
 def get_data_for_whatsapp():
     try:
+        connection.ping()
         with connection.cursor() as cursor:
             query = f"""
                     SELECT GROUP_CONCAT(concat(' ' ,p.name) ) as plants_names ,u.name as user_name, p.name as plant_name, u.phone_number 
@@ -153,6 +164,7 @@ def get_data_for_whatsapp():
 
 def get_notifications_of_user(user_id):
     try:
+        connection.ping()
         with connection.cursor() as cursor:
             query = f"""
                     SELECT plant_id
@@ -169,6 +181,7 @@ def get_notifications_of_user(user_id):
 
 def get_plants_of_user(user_id):
     try:
+        connection.ping()
         with connection.cursor() as cursor:
             query = f"""
                     SELECT plant_id
@@ -185,6 +198,7 @@ def get_plants_of_user(user_id):
 
 def update_note(user_id, plant_id, note):
     try:
+        connection.ping()
         with connection.cursor() as cursor:
             query = f"""
                     UPDATE users_plants
